@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jamb</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./assets/icon.ico" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header-wrapper">
+      <!-- New Game & Name Change -->
+      <div class="new-game-menu">
+        <button class="new-game-button" id="newGameButton">
+          <i class="fa-solid fa-power-off"></i>
+        </button>
+        <button class="change-name-button" id="changeNameButton">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </div>
+      <!-- Dark Mode Switch -->
+      <div class="theme-switch-wrapper">
+        <span id="toggle-icon">
+          <span class="toggle-text">Light Mode</span>
+          <i class="fa-solid fa-sun"></i>
+        </span>
+        <label class="theme-switch">
+          <input type="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Game Main Menu -->
+    <div class="mainMenu showMainMenu">
+      <h1 id="mainMenuText">Welcome to the game of JAMB!</h1>
+      <h2>Select the number of players:</h2>
+      <div class="button-container">
+        <button class="player-button" id="onePlayer">1 Player</button>
+        <button class="player-button" id="twoPlayers">2 Players</button>
+        <button class="player-button" id="threePlayers">3 Players</button>
+        <button class="player-button" id="fourPlayers">4 Players</button>
+        <!-- INSERT MORE PLAYERS HERE AND IN SCRIPT.JS: -->
+        <!-- <button id="fivePlayers">5 Players</button> -->
+        <!-- <button id="sixPlayers">6 Players</button> -->
+        <!-- <button id="sevenPlayers">7 Players</button> -->
+        <!-- <button id="eightPlayers">8 Players</button> -->
+      </div>
+    </div>
+    <!-- Scoreboard -->
+    <div class="scoreboard" id="scoreboard">
+      <table id="scoreTable">
+        <tr>
+          <th>JAMB</th>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-one"></i></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-two"></i></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-three"></i></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-four"></i></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-five"></i></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-dice-six"></i></td>
+        </tr>
+        <tr>
+          <td>BONUS</td>
+        </tr>
+        <tr>
+          <td>3 of a Kind</td>
+        </tr>
+        <tr>
+          <td>4 of a Kind</td>
+        </tr>
+        <tr>
+          <td>Full House</td>
+        </tr>
+        <tr>
+          <td>Small Straight</td>
+        </tr>
+        <tr>
+          <td>Large Straight</td>
+        </tr>
+        <tr>
+          <td>JAMB</td>
+        </tr>
+        <tr>
+          <td>Chance</td>
+        </tr>
+        <tr>
+          <td>Score</td>
+        </tr>
+      </table>
+    </div>
+    <div class="rolling-container">
+      <!-- Dice -->
+      <div class="dice">
+        <img
+          class="dieOne die showDice"
+          id="dieOne"
+          src="assets/1light.png"
+          alt="A single die"
+        />
+        <img
+          class="dieTwo die showDice"
+          id="dieTwo"
+          src="assets/2light.png"
+          alt="A single die"
+        />
+        <img
+          class="dieThree die showDice"
+          id="dieThree"
+          src="assets/3light.png"
+          alt="A single die"
+        />
+        <img
+          class="dieFour die showDice"
+          id="dieFour"
+          src="assets/4light.png"
+          alt="A single die"
+        />
+        <img
+          class="dieFive die showDice"
+          id="dieFive"
+          src="assets/5light.png"
+          alt="A single die"
+        />
+      </div>
+      <div class="cups">
+        <img
+          src="assets/cuplight2.png"
+          id="diceCup2"
+          alt="Dice Cup"
+          class="diceCup cup2"
+        />
+        <img
+          src="assets/cuplight1.png"
+          id="diceCup1"
+          alt="Dice Cup"
+          class="diceCup cup1"
+        />
+      </div>
+      <!-- Roll Button -->
+      <button class="roll-button" id="rollButton"></button>
+    </div>
+    <div class="nameChange" id="nameChange"></div>
+    <!-- Script -->
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

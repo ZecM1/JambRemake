@@ -1,0 +1,579 @@
+/* Light Theme */
+:root {
+  --main-header-color: #181c2c;
+
+  --text-color: black;
+  --text-header-color: white;
+
+  --table-color: #aaaaaaaa;
+  --table-header: #181c2c;
+  --table-background: #fffff0;
+
+  --button-color: radial-gradient(100% 100% at 100% 0, #181c2c 0, #191c2c 100%);
+  --button-shadow: white;
+  --button-save: #181c2c;
+
+  --main-color: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 0C6.716 0 0 6.716 0 15c8.284 0 15-6.716 15-15zM0 15c0 8.284 6.716 15 15 15 0-8.284-6.716-15-15-15zm30 0c0-8.284-6.716-15-15-15 0 8.284 6.716 15 15 15zm0 0c0 8.284-6.716 15-15 15 0-8.284 6.716-15 15-15z' fill='%23181c2c' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --main-header-color: #181c2c;
+
+  --text-color: white;
+  --text-header-color: white;
+
+  --table-color: #aaaaaaaa;
+  --table-header: #181c2c;
+  --table-background: rgb(41, 36, 36);
+
+  --main-color: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 0C6.716 0 0 6.716 0 15c8.284 0 15-6.716 15-15zM0 15c0 8.284 6.716 15 15 15 0-8.284-6.716-15-15-15zm30 0c0-8.284-6.716-15-15-15 0 8.284 6.716 15 15 15zm0 0c0 8.284-6.716 15-15 15 0-8.284 6.716-15 15-15z' fill='%239C92AC' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E"),
+    radial-gradient(circle, #2f354f, #292f46, #23283d, #1e2234, #181c2c);
+  --button-color: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  --button-shadow: #3c4fe0;
+  --button-save: #5468ff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--main-color);
+  background-size: var(--background-size);
+  background-position: var(--background-position);
+}
+
+/* Title i Main Menu */
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  padding-top: 10px;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+.mainMenu {
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+
+  padding: 20px;
+  text-align: center;
+  color: var(--text-color);
+  background: var(--table-background);
+  width: 40rem;
+  height: max-content;
+
+  border: 3px solid var(--table-color);
+  border-radius: 26px;
+}
+
+/* Player Select Menu */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Table */
+
+table {
+  position: absolute;
+  top: 13%;
+  left: -30%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 15px;
+  background: var(--table-background);
+  color: var(--text-color);
+  text-align: center;
+  border: 3px solid var(--table-color);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0;
+  table-layout: fixed;
+  max-width: 30rem;
+}
+.scoreboard {
+  border-radius: 15px;
+}
+
+th,
+th ~ td,
+td:nth-child(1),
+[data-row='7'],
+[data-row='15'] {
+  background: var(--table-header);
+  color: var(--text-header-color);
+}
+
+th,
+td {
+  border: 1px solid var(--table-color);
+  border-radius: 5px;
+  padding: 8px 10px;
+  max-height: 1rem;
+  overflow: hidden;
+  text-overflow: clip;
+}
+tr td:first-child {
+  min-width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+td:not(:first-child) {
+  min-width: 6em;
+  max-width: 6em;
+}
+
+.fa-solid {
+  font-size: 25px;
+}
+
+.placeholder {
+  opacity: 55%;
+  cursor: pointer;
+}
+
+/* Header - Main Menu & Dark Mode buttons */
+.header-wrapper {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--main-header-color);
+  color: var(--text-header-color);
+}
+
+.new-game-menu {
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 25px;
+  padding-left: 10px;
+}
+.new-game-menu i {
+  margin-bottom: 5px;
+  align-items: top;
+}
+
+.new-game-menu button {
+  color: var(--text-header-color);
+  background: none;
+  border: none;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.theme-switch-wrapper {
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.slider::before {
+  background: white;
+  bottom: 4px;
+  content: '';
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+input:checked + .slider {
+  background: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+/* Dice, Cup and Roll Button */
+.buttonContainer,
+.rolling-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.rolling-container {
+  height: 100vh;
+  width: 50vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.diceCup {
+  width: 200px;
+}
+.die {
+  width: 70px;
+  z-index: 5;
+}
+.die:hover {
+  cursor: pointer;
+}
+
+.player-button,
+.roll-button {
+  background-image: var(--button-color);
+  border: 0;
+  border-radius: 16px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(156, 118, 240, 0.3) 0 7px 13px -3px,
+    rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  width: 155px;
+  line-height: 1;
+  overflow: hidden;
+  margin-top: 25px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+button:has(i) {
+  box-shadow: none;
+}
+
+.player-button:focus,
+.roll-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.save {
+  border: var(--button-save) 6px solid;
+  border-radius: 16px;
+}
+
+.player-button:hover,
+.roll-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--button-shadow) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+.player-button:active,
+.roll-button:active {
+  box-shadow: var(--button-color) 0 3px 7px inset;
+  transform: translateY(2px);
+  outline: none;
+}
+
+.roll-button:disabled {
+  background: gray;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+  cursor: default;
+}
+
+/* ANIMATIONS */
+
+/* Menu */
+.hideMainMenu {
+  animation: hideMainMenu 1s forwards linear;
+}
+@keyframes hideMainMenu {
+  from {
+    top: 25%;
+  }
+  to {
+    top: -35%;
+  }
+}
+.showMainMenu {
+  animation: showMainMenu 1s forwards linear;
+}
+
+@keyframes showMainMenu {
+  from {
+    top: -25%;
+  }
+  to {
+    top: 25%;
+  }
+}
+
+/* Table */
+.hideTable {
+  animation: hideTable 1s forwards linear;
+}
+@keyframes hideTable {
+  from {
+    left: 0;
+  }
+  to {
+    left: -50%;
+  }
+}
+.showTable {
+  animation: showTable 1s forwards linear;
+}
+@keyframes showTable {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+/* Roll Button */
+.roll-button {
+  position: absolute;
+  bottom: -160%;
+}
+
+.hideRollButton {
+  animation: hideRollButton 1s forwards linear;
+}
+@keyframes hideRollButton {
+  from {
+    bottom: 15%;
+  }
+  to {
+    bottom: -10%;
+  }
+}
+.showRollButton {
+  animation: showRollButton 1s forwards linear;
+}
+@keyframes showRollButton {
+  from {
+    bottom: -10%;
+  }
+  to {
+    bottom: 15%;
+  }
+}
+
+/* Cup parts */
+.cup2 {
+  position: absolute;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  top: 64%;
+}
+
+.cup1 {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  top: 64%;
+}
+
+/* Dice */
+.dice {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  bottom: 10%;
+  gap: 15px;
+}
+
+.die {
+  position: fixed;
+}
+.dieOne {
+  --initialRight: 65%;
+  right: var(--initialRight);
+}
+.dieTwo {
+  --initialRight: 55%;
+  right: var(--initialRight);
+}
+.dieThree {
+  --initialRight: 45%;
+  right: var(--initialRight);
+}
+.dieFour {
+  --initialRight: 35%;
+  right: var(--initialRight);
+}
+.dieFive {
+  --initialRight: 25%;
+  right: var(--initialRight);
+}
+
+.hideDice {
+  animation: hideDice 1s forwards linear;
+}
+
+@keyframes hideDice {
+  0% {
+    right: var(--initialRight);
+    bottom: 50%;
+  }
+  50% {
+    right: 46%;
+  }
+
+  100% {
+    right: 46%;
+    bottom: 35%;
+  }
+}
+
+.showDice {
+  animation: showDice 1s forwards linear;
+}
+@keyframes showDice {
+  0% {
+    right: 46%;
+    bottom: 35%;
+  }
+  50% {
+    right: 46%;
+  }
+
+  100% {
+    right: var(--initialRight);
+    bottom: 50%;
+  }
+}
+
+/* NameChange Div */
+.nameChange {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -20%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: left;
+  color: var(--text-color);
+  background: var(--table-background);
+  width: 25rem;
+  height: fit-content;
+  border: 3px solid var(--table-color);
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  gap: 25px;
+}
+.inputContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cleanButton,
+.cleanButton:hover,
+.cleanButton:active {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.cleanButton:hover {
+  transform: scaleY(1.2) scaleX(1.2);
+}
+.cleanButton:active {
+  transform: scaleY(1) scaleX(1);
+}
+
+.fa-check {
+  color: greenyellow;
+}
+.fa-xmark {
+  color: red;
+}
+.playerName {
+  width: 40%;
+  height: fit-content;
+}
+.showNameChange {
+  animation: showNameChange 1s forwards;
+}
+@keyframes showNameChange {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 25%;
+  }
+}
+.hideNameChange {
+  animation: hideNameChange 1s forwards;
+}
+@keyframes hideNameChange {
+  0% {
+    top: 25%;
+  }
+  100% {
+    top: -20%;
+  }
+}
+
+/* Keep the table hidden on slim screens */
+@media only screen and (max-width: 1100px) {
+  @keyframes hideTable {
+    from {
+      left: 0;
+    }
+    to {
+      left: -100vw;
+    }
+  }
+  .showTable {
+    animation: showTable 1s forwards linear;
+  }
+  @keyframes showTable {
+    from {
+      left: -100vw;
+    }
+    to {
+      left: 0;
+    }
+  }
+}
